@@ -1,9 +1,13 @@
 from rest_framework.serializers import ModelSerializer
 
-from reservation.models import Location_Place, Location_Review_Ratings
+from reservation.models import Lodgement, Lodgement_Review_Ratings
 
 
-class Location_PlaceSerializer(ModelSerializer):
+class LodgementSerializer(ModelSerializer):
     class Meta:
-        model = Location_Place
+        model = Lodgement
+        fields = "__all__"
+class LodgementReviewRatingsSerializer(ModelSerializer):
+    class Meta:
+        model = Lodgement
         fields = "__all__"

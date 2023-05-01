@@ -1,12 +1,31 @@
 from rest_framework.views import APIView
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 
-from reservation.models import Location_Place, Location_Review_Ratings
-from reservation.serializers import Location_PlaceSerializer
+from reservation.models import Lodgement, Lodgement_Review_Ratings
+from reservation.serializers import (
+    LodgementSerializer,
+    LodgementReviewRatingsSerializer,
+)
 
 
-class Location_PlaceAPIView(APIView):
+class LodgementViewSet(viewsets.ModelViewSet):
+    locations_places = Lodgement.objects.all()
+    serializer = LodgementSerializer(locations_places, many=True)
+
     def get(self, *args, **kwargs):
-        locations_places = Location_Place.objects.all()
-        serializer = Location_PlaceSerializer(locations_places, many=True)
+        locations_places = Lodgement.objects.all()
+        serializer = LodgementSerializer(locations_places, many=True)
+        return Response(serializer.data)
+
+
+class Lodgement_Review_RatingsViewSet(viewsets.ModelViewSet):
+    lodgement_review_ratings = Lodgement_Review_Ratings.objects.all()
+    serializer = LodgementReviewRatingsSerializer(lodgement_review_ratings, many=True)
+
+    def get(self, *args, **kwargs):
+        lodgement_review_ratings = Lodgement_Review_Ratings.objects.all()
+        serializer = LodgementReviewRatingsSerializer(
+            lodgement_review_ratings, many=True
+        )
         return Response(serializer.data)
