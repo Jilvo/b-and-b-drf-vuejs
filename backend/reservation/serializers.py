@@ -7,7 +7,9 @@ class LodgementSerializer(ModelSerializer):
     class Meta:
         model = Lodgement
         fields = "__all__"
+
+
 class LodgementReviewRatingsSerializer(ModelSerializer):
     class Meta:
-        model = Lodgement
+        model = Lodgement_Review_Ratings
         fields = "__all__"
