@@ -4,7 +4,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from manage_user.models import CustomUser
 
-from reservation.models import (
+from .models import (
     Lodgement,
     Lodgement_Review_Ratings,
     Bathroom_Lodgement_Equipment,
@@ -19,7 +19,7 @@ from reservation.models import (
     Parking_Lodgement_Equipment,
     Services_Lodgement,
 )
-from reservation.serializers import (
+from .serializers import (
     BathroomLodgementEquipmentSerializer,
     BedroomLodgementEquipmentSerializer,
     ClimatisationLodgementEquipmentSerializer,

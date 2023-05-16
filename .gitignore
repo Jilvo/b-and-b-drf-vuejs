@@ -3,4 +3,4 @@ db.sqlite3
 *.pyc
 backend/b_b_copy/.env
 backend/manage_user/migrations/
-backend/reservation/migrations/
+backend/listings/migrations/

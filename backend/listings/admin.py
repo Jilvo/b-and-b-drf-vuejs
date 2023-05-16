@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from reservation.models import (
+from .models import (
     Lodgement,
     Lodgement_Review_Ratings,
     Bathroom_Lodgement_Equipment,

@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from reservation.models import (
+from .models import (
     Lodgement,
     Lodgement_Review_Ratings,
     Bathroom_Lodgement_Equipment,

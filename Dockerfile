@@ -4,6 +4,7 @@ WORKDIR /b_b_copy-docker
 
 # Copiez le fichier requirements.txt dans le répertoire courant
 COPY backend/requirements.txt .
+COPY backend/b_b_copy/.env /b_b_copy-docker/backend/.env
 
 # Installez les dépendances de l'application
 RUN pip install --upgrade pip \
