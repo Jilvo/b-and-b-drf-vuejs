@@ -18,10 +18,10 @@ class Lodgement_Review(models.Model):
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     review_content = models.CharField(max_length=1000,null=True)
-    cleaning_grade = models.IntegerField(choices=RATING_CHOICES,null=True,default=5)
-    communication_grade = models.IntegerField(choices=RATING_CHOICES,null=True,default=5)
-    localization_grade = models.IntegerField(choices=RATING_CHOICES,null=True,default=5)
-    quality_price_ratio_grade = models.IntegerField(choices=RATING_CHOICES,null=True,default=5)
+    cleaning_grade = models.IntegerField(choices=RATING_CHOICES,null=False,default=5)
+    communication_grade = models.IntegerField(choices=RATING_CHOICES,null=False,default=5)
+    localization_grade = models.IntegerField(choices=RATING_CHOICES,null=False,default=5)
+    quality_price_ratio_grade = models.IntegerField(choices=RATING_CHOICES,null=False,default=5)
 
     @property
     def average_grade(self):

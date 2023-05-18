@@ -15,11 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from tchats_service.views import ConversationViewSet
 from rest_framework.routers import DefaultRouter
 from django.urls import include, path
 
 from listings.views import LodgementViewSet, Lodgement_Review_RatingsViewSet
+from tchats_service.views import ConversationViewSet
+from review.views import Lodgement_ReviewViewSet
+from bookings.views import BookingViewSet
 
 router = DefaultRouter()
 router.register(r"lodgement", LodgementViewSet, basename="lodgement")
@@ -28,7 +30,9 @@ router.register(
     Lodgement_Review_RatingsViewSet,
     basename="lodgement_review_ratings",
 )
+router.register(r"bookings", BookingViewSet, basename="bookings")
 router.register(r"conversation", ConversationViewSet, basename="conversation")
+router.register(r"lodgement_review", Lodgement_ReviewViewSet, basename="lodgement_review")
 urlpatterns = [
     path("", include(router.urls)),
     path("admin/", admin.site.urls),

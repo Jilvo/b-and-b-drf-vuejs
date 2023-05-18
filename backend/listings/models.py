@@ -16,7 +16,7 @@ class Lodgement(models.Model):
     number_of_beds = models.IntegerField()
     number_of_bathrooms = models.IntegerField()
     description = models.CharField(max_length=1000, null=True)
-    price = models.IntegerField()
+    price_by_night = models.IntegerField()
 
     class Meta:
         verbose_name = "Lodgement Place"

@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from .models import Lodgement_Review
 from .serializers import Lodgement_ReviewSerializer
 
-class ConversationViewSet(viewsets.ModelViewSet):
+class Lodgement_ReviewViewSet(viewsets.ModelViewSet):
     queryset = Lodgement_Review.objects.all()
     serializer_class = Lodgement_ReviewSerializer
 
