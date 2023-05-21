@@ -2,5 +2,10 @@ venv/
 db.sqlite3
 *.pyc
 backend/b_b_copy/.env
-backend/manage_user/migrations/
+backend/bookings/migrations/
 backend/listings/migrations/
+backend/manage_user/migrations/
+backend/payments/migrations/
+backend/review/migrations/
+backend/tchats_service/migrations/
+/migrations/

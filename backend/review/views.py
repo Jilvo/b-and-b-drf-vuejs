@@ -1,10 +1,11 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from rest_framework.views import APIView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
 from .models import Lodgement_Review
 from .serializers import Lodgement_ReviewSerializer
+
 
 class Lodgement_ReviewViewSet(viewsets.ModelViewSet):
     queryset = Lodgement_Review.objects.all()
@@ -16,7 +17,7 @@ class Lodgement_ReviewViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer_class.data)
         return Response(
             serializer_class.data, status=status.HTTP_200_OK, headers=headers
-            )
+        )
 
     def retrieve(self, request, pk=None, *args, **kwargs):
         """Get Lodgement by id"""

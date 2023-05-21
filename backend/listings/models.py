@@ -1,11 +1,10 @@
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User,AbstractUser
+from django.contrib.auth.models import User, AbstractUser
 
 
 # Create your models here.
 # TODO ajouter last connection
-
 
 
 class Lodgement(models.Model):
@@ -34,6 +33,7 @@ class Lodgement_Review_Ratings(models.Model):
         verbose_name = "Lodgement Review Rating"
         verbose_name_plural = "Lodgement Review Ratings"
 
+
 class Bathroom_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     bathtub = models.BooleanField(default=False)
@@ -42,6 +42,7 @@ class Bathroom_Lodgement_Equipment(models.Model):
     soap = models.BooleanField(default=False)
     hot_water = models.BooleanField(default=False)
     shower_gel = models.BooleanField(default=False)
+
 
 class Bedroom_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
@@ -52,12 +53,15 @@ class Bedroom_Lodgement_Equipment(models.Model):
     hangers = models.BooleanField(default=False)
     sheets = models.BooleanField(default=False)
     pillows = models.BooleanField(default=False)
+
+
 class Distraction_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     television = models.BooleanField(default=False)
     game_console = models.BooleanField(default=False)
     piano = models.BooleanField(default=False)
     bike = models.BooleanField(default=False)
+
 
 class Family_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
@@ -67,6 +71,7 @@ class Family_Lodgement_Equipment(models.Model):
     stroller = models.BooleanField(default=False)
     baby_safety_gate = models.BooleanField(default=False)
 
+
 class Climatisation_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     climatisation = models.BooleanField(default=False)
@@ -74,16 +79,19 @@ class Climatisation_Lodgement_Equipment(models.Model):
     fan_ceiling = models.BooleanField(default=False)
     heating = models.BooleanField(default=False)
 
+
 class Home_Security_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     smoke_detector = models.BooleanField(default=False)
     first_aid_kit = models.BooleanField(default=False)
     extinctor = models.BooleanField(default=False)
 
+
 class Internet_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     wifi_presence = models.BooleanField(default=False)
     work_space_presence = models.BooleanField(default=False)
+
 
 class Kitchen_Logdment_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
@@ -96,21 +104,24 @@ class Kitchen_Logdment_Equipment(models.Model):
     coffee_maker = models.BooleanField(default=False)
     hob = models.BooleanField(default=False)
 
+
 class Exterior_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     balcony = models.BooleanField(default=False)
     barbecue = models.BooleanField(default=False)
     garden = models.BooleanField(default=False)
 
+
 class Parking_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     parking_in_the_lodgement = models.BooleanField(default=False)
     parking_in_the_street = models.BooleanField(default=False)
+
 
 class Services_Lodgement(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     animals_accepted = models.BooleanField(default=False)
     smoker_lodgement = models.BooleanField(default=False)
     key_gaven_by_the_host = models.BooleanField(default=False)
-    secured_key_box= models.BooleanField(default=False)
+    secured_key_box = models.BooleanField(default=False)
     autonomous_arrival = models.BooleanField(default=False)

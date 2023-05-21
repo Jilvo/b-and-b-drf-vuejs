@@ -148,4 +148,4 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
-AUTH_USER_MODEL = 'manage_user.CustomUser'
+AUTH_USER_MODEL = "manage_user.CustomUser"

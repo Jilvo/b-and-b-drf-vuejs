@@ -19,7 +19,7 @@ from rest_framework.routers import DefaultRouter
 from django.urls import include, path
 
 from listings.views import LodgementViewSet, Lodgement_Review_RatingsViewSet
-from tchats_service.views import ConversationViewSet
+from tchats_service.views import MessageViewSet
 from review.views import Lodgement_ReviewViewSet
 from bookings.views import BookingViewSet
 
@@ -31,8 +31,10 @@ router.register(
     basename="lodgement_review_ratings",
 )
 router.register(r"bookings", BookingViewSet, basename="bookings")
-router.register(r"conversation", ConversationViewSet, basename="conversation")
-router.register(r"lodgement_review", Lodgement_ReviewViewSet, basename="lodgement_review")
+router.register(r"message", MessageViewSet, basename="message")
+router.register(
+    r"lodgement_review", Lodgement_ReviewViewSet, basename="lodgement_review"
+)
 urlpatterns = [
     path("", include(router.urls)),
     path("admin/", admin.site.urls),
