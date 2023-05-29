@@ -18,7 +18,8 @@ class MessageViewSet(viewsets.ModelViewSet):
         return Response(
             serializer_class.data, status=status.HTTP_200_OK, headers=headers
         )
-
+    # TODO changer le serializer pour afficher les noms et pas les id
+    
     def retrieve(self, request, pk=None, *args, **kwargs):
         """Get Conversation by id"""
         conversation = get_object_or_404(self.get_queryset(), pk=pk)
@@ -28,5 +29,13 @@ class MessageViewSet(viewsets.ModelViewSet):
 
     def create(self, request, pk=None, *args, **kwargs):
         """ Create Conversation"""
-        print(request.data)  
-        return Response(status=status.HTTP_200_OK)
+        data_copy = request.data.copy()
+
+        print(request.data)
+        serializer = MessageSerializer(data=data_copy)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers
+        )

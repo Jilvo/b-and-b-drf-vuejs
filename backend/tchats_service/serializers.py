@@ -14,3 +14,8 @@ class MessageSerializer(ModelSerializer):
     class Meta:
         model = Message
         fields = "__all__"
+        
+    def create(self, validated_data):
+        conversation_data = validated_data.pop('conversation')
+        conversation = ConversationSerializer.create(ConversationSerializer(), validated_data=conversation_data)
+        return Message.objects.create(conversation=conversation, **validated_data)
