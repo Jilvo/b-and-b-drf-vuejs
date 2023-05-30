@@ -22,18 +22,6 @@ class Lodgement(models.Model):
         verbose_name_plural = "Lodgement Places"
 
 
-class Lodgement_Review_Ratings(models.Model):
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
-    review = models.CharField(max_length=1000, null=True)
-    general_grade = models.IntegerField()
-    review_date = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = "Lodgement Review Rating"
-        verbose_name_plural = "Lodgement Review Ratings"
-
-
 class Bathroom_Lodgement_Equipment(models.Model):
     lodgement_id = models.ForeignKey(Lodgement, on_delete=models.CASCADE)
     bathtub = models.BooleanField(default=False)

@@ -2,7 +2,6 @@ from rest_framework.serializers import ModelSerializer
 
 from .models import (
     Lodgement,
-    Lodgement_Review_Ratings,
     Bathroom_Lodgement_Equipment,
     Bedroom_Lodgement_Equipment,
     Distraction_Lodgement_Equipment,
@@ -20,12 +19,6 @@ from .models import (
 class LodgementSerializer(ModelSerializer):
     class Meta:
         model = Lodgement
-        fields = "__all__"
-
-
-class LodgementReviewRatingsSerializer(ModelSerializer):
-    class Meta:
-        model = Lodgement_Review_Ratings
         fields = "__all__"
 
 

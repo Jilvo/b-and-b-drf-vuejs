@@ -18,18 +18,14 @@ from django.contrib import admin
 from rest_framework.routers import DefaultRouter
 from django.urls import include, path
 
-from listings.views import LodgementViewSet, Lodgement_Review_RatingsViewSet
+from listings.views import LodgementViewSet
 from tchats_service.views import MessageViewSet
 from review.views import Lodgement_ReviewViewSet
 from bookings.views import BookingViewSet
 
 router = DefaultRouter()
 router.register(r"lodgement", LodgementViewSet, basename="lodgement")
-router.register(
-    r"lodgement_review_ratings",
-    Lodgement_Review_RatingsViewSet,
-    basename="lodgement_review_ratings",
-)
+
 router.register(r"bookings", BookingViewSet, basename="bookings")
 router.register(r"message", MessageViewSet, basename="message")
 router.register(

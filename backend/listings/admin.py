@@ -2,7 +2,6 @@ from django.contrib import admin
 
 from .models import (
     Lodgement,
-    Lodgement_Review_Ratings,
     Bathroom_Lodgement_Equipment,
     Bedroom_Lodgement_Equipment,
     Distraction_Lodgement_Equipment,
@@ -18,7 +17,6 @@ from .models import (
 
 # Register your models here.
 admin.site.register(Lodgement)
-admin.site.register(Lodgement_Review_Ratings)
 admin.site.register(Bathroom_Lodgement_Equipment)
 admin.site.register(Bedroom_Lodgement_Equipment)
 admin.site.register(Distraction_Lodgement_Equipment)

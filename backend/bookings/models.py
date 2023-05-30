@@ -29,3 +29,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking at {self.lodgement} by {self.user} from {self.start_date} to {self.end_date}"
+ # TODO faire les vérifications

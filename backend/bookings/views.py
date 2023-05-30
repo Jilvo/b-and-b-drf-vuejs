@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from manage_user.models import CustomUser
 from rest_framework.views import APIView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -25,3 +26,16 @@ class BookingViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(conversation)
         response_data = serializer.data
         return Response({"conversation": response_data})
+    
+    def create(self, request, *args, **kwargs):
+        """ Create a new Booking"""
+        data_copy = request.data.copy()
+        assigned_user = CustomUser.objects.get(id=request.user.id)
+        data_copy["user_id"] = assigned_user.id        
+        serializer = BookingSerializer(data=data_copy)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers
+        )

@@ -19,3 +19,4 @@ class CustomUser(AbstractUser):
         null=False,
     )
     city = models.CharField(max_length=100, null=True)
+
