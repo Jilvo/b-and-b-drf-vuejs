@@ -5,10 +5,14 @@ DRF and Vues.JS
 ## How to build Container:
 
 ```
-docker build -t b_b_image .
+docker-compose up
 ```
 
-```
-docker run -p 8000:8000 b_b_image
-```
 
+# TODO:
+- Gestion des Users
+- Empecher un propriétaire de louer son propre Logement
+- Permettre a un user de voir toutes ses locations passés et futures
+- Permettre à un users de voir combien va lui rapporter son logement ce mois ci et les mois précédents
+- afficher la liste des users qui ont dans le passé loués l'appart
+- Créer un système de réponse aux reviews
